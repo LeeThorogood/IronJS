@@ -1,19 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace IronJS.Runtime
-{
-    public static class BoxFields
-    {
-        public const string Bool = "Bool";
-        public const string Number = "Number";
-        public const string Clr = "Clr";
-        public const string Undefined = "Clr";
-        public const string String = "String";
-        public const string SuffixString = "SuffixString";
-        public const string Object = "Object";
-        public const string Function = "Func";
-    }
+namespace IronJS.Runtime {
+  public static class BoxFields {
+    public const String Bool = "Bool";
+    public const String Number = "Number";
+    public const String Clr = "Clr";
+    public const String Undefined = "Clr";
+    public const String String = "String";
+    public const String SuffixString = "SuffixString";
+    public const String Object = "Object";
+    public const String Function = "Func";
+  }
 }

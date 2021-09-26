@@ -1,32 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
-namespace DebugConsole
-{
-    class CallbackWriter : System.IO.TextWriter
-    {
-        Action<string> callback;
+namespace DebugConsole {
+  class CallbackWriter : System.IO.TextWriter {
+    readonly Action<String> callback;
 
-        public CallbackWriter(Action<string> callback)
-        {
-            this.callback = callback;
-        }
+    public CallbackWriter(Action<String> callback) => this.callback = callback;
 
-        public override Encoding Encoding
-        {
-            get { return Encoding.UTF8; }
-        }
+    public override Encoding Encoding { get => Encoding.UTF8; }
 
-        public override void Write(string value)
-        {
-            callback(value);
-        }
+    public override void Write(String value) => callback(value);
 
-        public override void WriteLine(string value)
-        {
-            Write(value + "\n");
-        }
-    }
+    public override void WriteLine(String value) => Write(value + "\n");
+  }
 }

@@ -1,8 +1,6 @@
-﻿namespace IronJS.Runtime
-{
-    public enum ParameterStorageType
-    {
-        Private,
-        Shared
-    }
+﻿namespace IronJS.Runtime {
+  public enum ParameterStorageType {
+    Private,
+    Shared
+  }
 }

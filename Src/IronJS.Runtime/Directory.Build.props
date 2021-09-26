@@ -1,0 +1,9 @@
+<Project>
+
+    <PropertyGroup>
+        <BaseOutputPath>..\..\Build\IronJS.Runtime\Bin\</BaseOutputPath>
+        <BaseIntermediateOutputPath>..\..\Build\IronJS.Runtime\Obj\</BaseIntermediateOutputPath>
+        <MSBuildProjectExtensionsPath>$(BaseIntermediateOutputPath)</MSBuildProjectExtensionsPath>
+    </PropertyGroup>
+    
+</Project>

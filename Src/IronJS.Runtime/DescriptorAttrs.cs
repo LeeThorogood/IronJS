@@ -1,14 +1,12 @@
 ﻿using System;
 
-namespace IronJS.Runtime
-{
-    public static class DescriptorAttrs
-    {
-        public const ushort None = 0;
-        public const ushort ReadOnly = 1;
-        public const ushort DontEnum = 2;
-        public const ushort DontDelete = 4;
-        public const ushort DontEnumOrDelete = DontEnum | DontDelete;
-        public const ushort Immutable = ReadOnly | DontEnum | DontDelete;
-    }
+namespace IronJS.Runtime {
+  public static class DescriptorAttrs {
+    public const UInt16 None             = 0;
+    public const UInt16 ReadOnly         = 1;
+    public const UInt16 DontEnum         = 2;
+    public const UInt16 DontDelete       = 4;
+    public const UInt16 DontEnumOrDelete = DontEnum | DontDelete;
+    public const UInt16 Immutable        = ReadOnly | DontEnum | DontDelete;
+  }
 }

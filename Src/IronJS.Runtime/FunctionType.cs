@@ -1,9 +1,7 @@
-﻿namespace IronJS.Runtime
-{
-    public enum FunctionType
-    {
-        UserDefined,
-        NativeConstructor,
-        NativeFunction
-    }
+﻿namespace IronJS.Runtime {
+  public enum FunctionType {
+    UserDefined,
+    NativeConstructor,
+    NativeFunction
+  }
 }

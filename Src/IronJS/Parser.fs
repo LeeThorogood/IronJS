@@ -623,5 +623,3 @@
 
         let parseFile path = parse (System.IO.File.ReadAllText(path))
         let parseGlobalFile path = LocalScope(Scope.NewGlobal, parseFile path)
-
-

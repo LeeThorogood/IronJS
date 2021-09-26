@@ -1,0 +1,9 @@
+<Project>
+
+    <PropertyGroup>
+        <BaseOutputPath>..\..\..\Build\DebugConsole\Bin\</BaseOutputPath>
+        <BaseIntermediateOutputPath>..\..\..\Build\DebugConsole\Obj\</BaseIntermediateOutputPath>
+        <MSBuildProjectExtensionsPath>$(BaseIntermediateOutputPath)</MSBuildProjectExtensionsPath>
+    </PropertyGroup>
+    
+</Project>

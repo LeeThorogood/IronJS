@@ -2,7 +2,6 @@
 
 open IronJS
 open IronJS.Runtime
-open System.Dynamic
 open System.Reflection
 
 type GetMemberBinder(name:obj, env:Env) =

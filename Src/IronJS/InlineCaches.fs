@@ -157,3 +157,4 @@ module Utils =
     | 3 -> typedefof<InlineInvokeCache<_, _, _>>.MakeGenericType(types)
     | 4 -> typedefof<InlineInvokeCache<_, _, _, _>>.MakeGenericType(types)
     | _ -> typeof<InlineVariadicInvokeCache>
+    

@@ -1,0 +1,27 @@
+{
+    "ignoreFiles": [
+        "assemblyinfo.*"
+    ],
+    "global": {
+        "numIndentationSpaces": 2
+    },
+    "indentation": {
+        "enabled": true
+    },
+    "maxCharactersOnLine": {
+        "enabled": true,
+        "config": {
+            "maxCharactersOnLine": 100
+        }
+    },
+    "trailingWhitespaceOnLine": {
+        "enabled": true,
+        "config": {
+            "numberOfSpacesAllowed": 1,
+            "oneSpaceAllowedAfterOperator": true,
+            "ignoreBlankLines": true
+        }
+    },
+    "trailingNewLineInFile": { "enabled": false },
+    "noTabCharacters": { "enabled": true }
+}

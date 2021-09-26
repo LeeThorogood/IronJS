@@ -177,7 +177,8 @@ module FSharp =
     let private _paramsDiff (x:System.Type) (y:ParamInfo) =
       if y.ParameterType = x || (not x.IsByRef && x.MakeByRefType() = y.ParameterType) then
         Some 0
-      elif y.ParameterType.IsAssignableFrom(x)|| (y.ParameterType.IsByRef && not x.IsByRef && y.ParameterType = x.MakeByRefType()) then
+      elif y.ParameterType.IsAssignableFrom(x) ||
+           (y.ParameterType.IsByRef && not x.IsByRef && y.ParameterType = x.MakeByRefType()) then
         Some 1
       else
         None
@@ -189,9 +190,9 @@ module FSharp =
       |> Seq.fold (fun s r -> match s with
                               | None -> None
                               | Some i ->
-                                 match r with
-                                 | Some j -> Some (i + j)
-                                 | None -> None) (Some 0)
+                                match r with
+                                | Some j -> Some (i + j)
+                                | None -> None) (Some 0)
 
     let private _findBestMatch methods args =
       let mutable bestMethod = None
@@ -209,9 +210,9 @@ module FSharp =
       let args = Array.ofSeq args
       let methods = 
         getMethods type'
-          |> Seq.filter (fun x -> x.Name = name)
-          |> Seq.map (fun x -> x, x.GetParameters())
-          |> Seq.filter (_sndLength args.Length)
+        |> Seq.filter (fun x -> x.Name = name)
+        |> Seq.map (fun x -> x, x.GetParameters())
+        |> Seq.filter (_sndLength args.Length)
 
       _findBestMatch methods args
 
@@ -228,15 +229,15 @@ module FSharp =
         let typeArgs = Array.ofSeq typeArgs
         let methods = 
           getMethods type'
-            |> Seq.filter (
+          |> Seq.filter (
               fun x -> 
                 x.Name = name 
                 && x.ContainsGenericParameters 
                 && x.GetGenericArguments().Length = typeArgs.Length)
-            |> Seq.map (fun x -> 
+          |> Seq.map (fun x -> 
               let x = x.MakeGenericMethod(typeArgs) in x, x.GetParameters()) 
-            |> Seq.filter (_sndLength args.Length)
-            |> Array.ofSeq
+          |> Seq.filter (_sndLength args.Length)
+          |> Array.ofSeq
             
         _findBestMatch methods args
 
@@ -248,8 +249,8 @@ module FSharp =
       let args = Array.ofSeq args
       let ctors = 
         getCtors type'
-          |> Seq.map (fun x -> x, x.GetParameters())
-          |> Seq.filter (_sndLength args.Length)
+        |> Seq.map (fun x -> x, x.GetParameters())
+        |> Seq.filter (_sndLength args.Length)
 
       _findBestMatch ctors args
 
@@ -265,11 +266,10 @@ module FSharp =
 
     let getFieldsT<'a> = getFields typeof<'a>
     let getField (type':System.Type) name = 
-      type'.GetField(name, 
-        BindingFlags.Public 
-        ||| BindingFlags.NonPublic
-        ||| BindingFlags.Instance
-        ||| BindingFlags.Static
+      type'.GetField(name, BindingFlags.Public 
+                           ||| BindingFlags.NonPublic
+                           ||| BindingFlags.Instance
+                           ||| BindingFlags.Static
       )
 
     let getFieldT<'a> = getField typeof<'a>

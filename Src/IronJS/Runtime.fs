@@ -7,21 +7,14 @@
 open IronJS
 open IronJS.Runtime
 open IronJS.Support.Aliases
-open IronJS.Support.CustomOperators
 
 open System
-open System.Dynamic
-open System.Reflection
-open System.Reflection.Emit
-open System.Runtime.InteropServices
-open System.Globalization
-open System.Text.RegularExpressions
 
 type BV = BoxedValue
 type Args = BV array
 type Desc = Descriptor
 type Undef = Undefined
-type Env = IronJS.Runtime.Environment
+type Env = Runtime.Environment
 
 type CO = CommonObject
 type VO = ValueObject
@@ -64,21 +57,32 @@ type TC = TypeConverter
 
 type DlrTC = DlrTypeConverter
 and DlrTypeConverter() =
-  static member ToBoxedValue(expr:Dlr.Expr) : Dlr.Expr = Dlr.callStaticT<TC> "ToBoxedValue" [expr]
+  static member ToBoxedValue(expr:Dlr.Expr) : Dlr.Expr =
+    Dlr.callStaticT<TC> "ToBoxedValue" [expr]
 
-  static member ToClrObject(expr:Dlr.Expr) : Dlr.Expr =  Dlr.callStaticT<TC> "ToClrObject" [expr]
+  static member ToClrObject(expr:Dlr.Expr) : Dlr.Expr = 
+    Dlr.callStaticT<TC> "ToClrObject" [expr]
 
-  static member ToObject(env:Dlr.Expr, expr:Dlr.Expr) : Dlr.Expr = Dlr.callStaticT<TC> "ToObject" [env; expr]
+  static member ToObject(env:Dlr.Expr, expr:Dlr.Expr) : Dlr.Expr =
+    Dlr.callStaticT<TC> "ToObject" [env; expr]
 
-  static member ToBoolean(expr:Dlr.Expr) : Dlr.Expr = Dlr.callStaticT<TC> "ToBoolean" [expr]
+  static member ToBoolean(expr:Dlr.Expr) : Dlr.Expr =
+    Dlr.callStaticT<TC> "ToBoolean" [expr]
 
-  static member ToPrimitive(expr:Dlr.Expr) : Dlr.Expr = Dlr.callStaticT<TC> "ToPrimitive" [expr]
-  static member ToPrimitiveHintNumber(expr:Dlr.Expr) : Dlr.Expr = Dlr.callStaticT<TC> "ToPrimitive" [expr; Dlr.const' DefaultValueHint.Number]
-  static member ToPrimitiveHintString(expr:Dlr.Expr) : Dlr.Expr = Dlr.callStaticT<TC> "ToPrimitive" [expr; Dlr.const' DefaultValueHint.String]
+  static member ToPrimitive(expr:Dlr.Expr) : Dlr.Expr =
+    Dlr.callStaticT<TC> "ToPrimitive" [expr]
 
-  static member ToString(expr:Dlr.Expr) : Dlr.Expr = Dlr.callStaticT<TC> "ToString" [expr]
+  static member ToPrimitiveHintNumber(expr:Dlr.Expr) : Dlr.Expr =
+    Dlr.callStaticT<TC> "ToPrimitive" [expr; Dlr.const' DefaultValueHint.Number]
 
-  static member ToNumber(expr:Dlr.Expr) : Dlr.Expr = Dlr.callStaticT<TC> "ToNumber" [expr]
+  static member ToPrimitiveHintString(expr:Dlr.Expr) : Dlr.Expr =
+    Dlr.callStaticT<TC> "ToPrimitive" [expr; Dlr.const' DefaultValueHint.String]
+
+  static member ToString(expr:Dlr.Expr) : Dlr.Expr =
+    Dlr.callStaticT<TC> "ToString" [expr]
+
+  static member ToNumber(expr:Dlr.Expr) : Dlr.Expr =
+    Dlr.callStaticT<TC> "ToNumber" [expr]
 
   static member ConvertTo (envExpr:Dlr.Expr, expr:Dlr.Expr, t:Type) =
     // If the types are identical just return the expr

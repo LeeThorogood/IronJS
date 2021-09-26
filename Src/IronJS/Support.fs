@@ -21,11 +21,7 @@ module Aliases =
   type MutableDict<'k, 'v> = Dictionary<'k, 'v>
   type MutableSorted<'k, 'v> = SortedDictionary<'k, 'v>
 
-  #if LEGACY_HASHSET
-  type MutableSet<'a when 'a : equality> = HashSet<'a>
-  #else
   type MutableSet<'a> = HashSet<'a>
-  #endif
   
   let anyNumber = NumberStyles.Any
   let invariantCulture = CultureInfo.InvariantCulture

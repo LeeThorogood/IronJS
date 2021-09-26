@@ -1,8 +1,7 @@
 ﻿<Window x:Class="DebugConsole.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Icon="/DebugConsole;component/IronJS.ico"
-        Title="IronJS Debug Console" Height="768" Width="1200">
+    Title="IronJS Debug Console" Height="768" Width="1200" Icon="pack://siteoforigin:,,,/IronJS.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="210*" />
@@ -12,7 +11,7 @@
             <ColumnDefinition Width="614*" />
             <ColumnDefinition Width="564*" />
         </Grid.ColumnDefinitions>
-        
+
         <TabControl Grid.Row="0" Grid.Column="0" Margin="10,25,10,10">
             <TabItem Header="Source Editor">
                 <Grid>
@@ -116,14 +115,15 @@
                HorizontalAlignment="Left" 
                Margin="10,0,0,0" Padding="0,5,0,0"
                VerticalAlignment="Top" />
-        
+
         <Label Content="Console Output"
                Grid.Row="1" Height="23" FontWeight="Bold"
                HorizontalAlignment="Left" Margin="12,0,0,0" 
                Padding="0" VerticalAlignment="Top" />
-        
+
         <Label Content="" Grid.Row="1" 
                Height="28" Margin="0,0,74,7" Name="breakPointLabel" HorizontalContentAlignment="Right"
                VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="414" />
     </Grid>
 </Window>
+    

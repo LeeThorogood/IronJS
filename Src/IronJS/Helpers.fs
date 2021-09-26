@@ -108,13 +108,13 @@ type DynamicScopeHelpers() =
 
     find dc
   
-  ///    
+  ///
   static let findVariable (name:string) (dc:DynamicScope) stop = 
     match findObject name dc stop with
     | Some o -> name |> o.Get |> Some
     | _ -> None
   
-  ///  
+  ///
   static member Get (name:string, dc, stop, g:CO, s:Scope, i) =
     match findObject name dc stop with
     | Some o -> o.Get name
@@ -127,7 +127,8 @@ type DynamicScopeHelpers() =
     | _ -> if s = null then g.Put(name, v) else s.[i] <- v
     
   ///
-  static member Call<'a when 'a :> Delegate and 'a : not struct> (name:string, args, dc, stop, g, s:Scope, i) =
+  static member Call<'a when 'a :> Delegate and 'a : not struct> (name:string,
+                                                                  args, dc, stop, g, s:Scope, i) =
     let this, func = 
       match findObject name dc stop with
       | Some o -> o, o.Get(name)
@@ -141,8 +142,8 @@ type DynamicScopeHelpers() =
 
     else
       Error.RuntimeError.Raise(Error.cantCallClrFunctionsInWith)
-     
-  /// 
+
+  ///
   static member Delete (dc:DynamicScope, g:CO, name:string) =
     match findObject name dc -1 with
     | Some o -> o.Delete(name)

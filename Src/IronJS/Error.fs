@@ -118,5 +118,6 @@ module Error =
   let missingContinue = "No continue target available"
   let missingBreak = "No break target available"
   let missingLabel = sprintf "No label named '%s' available"
-  let missingNoConversion (a:Type) (b:Type) = sprintf "No conversion from %s to type %s exists" a.Name b.Name
+  let missingNoConversion (a:Type) (b:Type) =
+    sprintf "No conversion from %s to type %s exists" a.Name b.Name
 

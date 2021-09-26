@@ -1,0 +1,9 @@
+<Project>
+
+    <PropertyGroup>
+        <BaseOutputPath>..\..\..\Build\REPL\Bin\</BaseOutputPath>
+        <BaseIntermediateOutputPath>..\..\..\Build\REPL\Obj\</BaseIntermediateOutputPath>
+        <MSBuildProjectExtensionsPath>$(BaseIntermediateOutputPath)</MSBuildProjectExtensionsPath>
+    </PropertyGroup>
+    
+</Project>
